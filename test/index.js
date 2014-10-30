@@ -19,6 +19,11 @@ describe('bcrypt-as-promised', function(){
       .to.eventually.be.an('string');
   });
 
+  it('should hash a password with default number of rounds', function(){
+    return expect(bcrypt.hash(goodPassword))
+      .to.eventually.be.an('string');
+  });
+
   it('should error hashing an invalid password', function(){
     return expect(bcrypt.hash(null, 10))
       .to.eventually.be.rejectedWith(Error);
