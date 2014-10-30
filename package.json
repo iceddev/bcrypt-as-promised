@@ -1,5 +1,5 @@
 {
-  "name": "bcyrpt-as-promised",
+  "name": "bcrypt-as-promised",
   "version": "1.0.0",
   "description": "A promisified bcrypt",
   "main": "index.js",
@@ -9,7 +9,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git@github.com:iceddev/bcyrpt-as-promised.git"
+    "url": "git@github.com:iceddev/bcrypt-as-promised.git"
   },
   "keywords": [
     "bcrypt",
@@ -18,9 +18,9 @@
   "author": "Luis Montes",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/iceddev/bcyrpt-as-promised/issues"
+    "url": "https://github.com/iceddev/bcrypt-as-promised/issues"
   },
-  "homepage": "https://github.com/iceddev/bcyrpt-as-promised",
+  "homepage": "https://github.com/iceddev/bcrypt-as-promised",
   "dependencies": {
     "bcrypt": "^0.8.0",
     "when": "^3.5.2"
