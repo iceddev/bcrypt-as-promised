@@ -19,9 +19,19 @@ describe('bcrypt-as-promised', function(){
       .to.eventually.be.an('string');
   });
 
+  it('should error hashing an invalid password', function(){
+    return expect(bcrypt.hash(null, 10))
+      .to.eventually.be.rejectedWith(Error);
+  });
+
   it('should generate a salt', function(){
     return expect(bcrypt.genSalt(10))
       .to.eventually.be.an('string');
+  });
+
+  it('should error generating a salt with invalid input', function(){
+    return expect(bcrypt.genSalt('not a number'))
+      .to.eventually.be.rejectedWith(Error);
   });
 
   it('should compare a password againts its hash', function(){
@@ -38,6 +48,11 @@ describe('bcrypt-as-promised', function(){
   it('should get number of rounds from a hash', function(){
     return expect(bcrypt.getRounds(goodHash))
       .to.eventually.equal(10);
+  });
+
+  it('should error on an invalid hash', function(){
+    return expect(bcrypt.getRounds('not a real hash'))
+      .to.eventually.be.rejectedWith(Error);
   });
 
 });
