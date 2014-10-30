@@ -1,6 +1,8 @@
 bcrypt-as-promised
 ==================
 
+[![Build Status](https://travis-ci.org/iceddev/bcrypt-as-promised.svg?branch=master)](https://travis-ci.org/iceddev/bcrypt-as-promised)
+
 A promisified version of [bcrypt](https://github.com/ncb000gt/node.bcrypt.js)
 
 ## Install via NPM
