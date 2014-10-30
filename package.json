@@ -1,0 +1,36 @@
+{
+  "name": "bcyrpt-as-promised",
+  "version": "0.1.0",
+  "description": "A promisified bcrypt",
+  "main": "index.js",
+  "scripts": {
+    "test": "gulp lint && istanbul cover _mocha && npm run check-coverage",
+    "check-coverage": "istanbul check-coverage --statements 100 --branches 100 --lines 100 --functions 100"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:iceddev/bcyrpt-as-promised.git"
+  },
+  "keywords": [
+    "bcrypt",
+    "promise"
+  ],
+  "author": "Luis Montes",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/iceddev/bcyrpt-as-promised/issues"
+  },
+  "homepage": "https://github.com/iceddev/bcyrpt-as-promised",
+  "dependencies": {
+    "bcrypt": "^0.8.0",
+    "when": "^3.5.2"
+  },
+  "devDependencies": {
+    "chai": "^1.9.2",
+    "chai-as-promised": "^4.1.1",
+    "gulp": "^3.8.9",
+    "gulp-jshint": "^1.8.6",
+    "istanbul": "^0.3.2",
+    "mocha": "^2.0.1"
+  }
+}
