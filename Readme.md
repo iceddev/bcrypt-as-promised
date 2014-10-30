@@ -1,7 +1,7 @@
 bcrypt-as-promised
 ==================
 
-A promisified version of (bcrypt)[https://github.com/ncb000gt/node.bcrypt.js]
+A promisified version of [bcrypt](https://github.com/ncb000gt/node.bcrypt.js)
 
 ## Install via NPM
 ```
