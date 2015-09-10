@@ -19,7 +19,6 @@ hashing:
 ```
 
 comparing:
-(note that an invalid password/hash combo errors as a rejected promise)
 ```javascript
     bcyrpt.compare('my password', someHash)
       .then(console.log, console.error)
