@@ -47,7 +47,7 @@ describe('bcrypt-as-promised', function(){
   it('should error on an invalid password', function(){
     var badPassword = 'a BAD password';
     return expect(bcrypt.compare(badPassword, goodHash))
-      .to.eventually.be.rejectedWith(Error);
+      .to.eventually.equal(false);
   });
 
   it('should get number of rounds from a hash', function(){
