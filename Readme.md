@@ -23,8 +23,11 @@ comparing:
 bcrypt.compare('my password', someHash)
   .then(console.log, console.error)
 ```
+
 __Note: an invalid password/hash combo errors as a rejected promise__
+
 The rejection can be checked against `instanceof bcrypt.MISMATCH_ERROR`
+
 ```js
 bcrypt.compare('invalid password', someHash)
   .then(handleValidPassword)
