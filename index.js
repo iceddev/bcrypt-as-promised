@@ -1,5 +1,7 @@
 'use strict';
 
+var util = require('util');
+
 var bcrypt = require('bcrypt');
 var nodefn = require('when/node');
 var when = require('when');
@@ -9,14 +11,27 @@ var hash = nodefn.lift(bcrypt.hash);
 
 var DEFAULT_ROUNDS = 10;
 
+function MismatchError(message){
+  Error.call(this);
+  this.message = message;
+  this.name = MismatchError.name;
+  if(typeof Error.captureStackTrace === 'function'){
+    Error.captureStackTrace(this, MismatchError);
+  }
+}
+util.inherits(MismatchError, Error);
+
+function throwOnInvalid(valid){
+  if(!valid){
+    return when.reject(new MismatchError('invalid'));
+  } else {
+    return valid;
+  }
+}
+
 function compare(password, hash){
   return getValid(password, hash)
-    .then(function(valid){
-      if(!valid){
-        return when.reject(new Error('invalid'));
-      }
-      return valid;
-    });
+    .then(throwOnInvalid);
 }
 
 function getRounds(hash){
@@ -34,5 +49,6 @@ module.exports = {
   hash: promisedHash,
   genSalt: nodefn.lift(bcrypt.genSalt),
   compare: compare,
-  getRounds: getRounds
+  getRounds: getRounds,
+  MISMATCH_ERROR: MismatchError
 };

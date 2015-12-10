@@ -50,6 +50,12 @@ describe('bcrypt-as-promised', function(){
       .to.eventually.be.rejectedWith(Error);
   });
 
+  it('should error with MISMATCH_ERROR on an invalid password', function(){
+    var badPassword = 'a BAD password';
+    return expect(bcrypt.compare(badPassword, goodHash))
+      .to.eventually.be.rejectedWith(bcrypt.MISMATCH_ERROR);
+  });
+
   it('should get number of rounds from a hash', function(){
     return expect(bcrypt.getRounds(goodHash))
       .to.eventually.equal(10);
